@@ -22,7 +22,7 @@ public class JumpScript : MonoBehaviour
 
         
     }
-
+    //ghuhiu
     // Update is called once per frame
     void Update()
     {
