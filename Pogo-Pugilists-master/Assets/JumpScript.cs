@@ -5,20 +5,16 @@ using UnityEngine;
 public class JumpScript : MonoBehaviour
 {
     public Rigidbody2D rb2;
-    public Transform playerPos;
+   
     //public float lockPos;
-    public int lives;
-    public bool inPlay;
-    public bool gameOver;
+   
 
     // Start is called before the first frame update
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
         //lockPos = 0;
-        lives = 3;
-        inPlay = true;
-        gameOver = false;
+  
 
         
     }
@@ -26,18 +22,7 @@ public class JumpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!inPlay)
-        {
-            if(lives >= 0)
-            {
-                transform.position = playerPos.position;
-                inPlay = true;
-            }
-            else
-            {
-                gameOver = true;
-            }
-        }
+      
         
         if (Input.GetButtonDown("Jump"))
         {
@@ -60,38 +45,5 @@ public class JumpScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            //lives--;
-            Debug.Log("Hit");
-        }
-
-        else if (other.CompareTag("Ground"))
-        {
-           // Debug.Log("It hit the ground");
-        }
-
-        else if(other.CompareTag("Leaves"))
-        {
-            lives--;
-            rb2.velocity = Vector2.zero;
-            inPlay = false;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        // If you want to add a health pool instead of stocks
-        //if (other.transform.CompareTag("Player"))
-        //{
-        //    if (other.gameObject.GetComponent<TestJump>().lives <= 0)
-        //    {
-        //
-        //        Destroy(other.gameObject);
-        //    }
-        //}
-
-    }
+   
 }
