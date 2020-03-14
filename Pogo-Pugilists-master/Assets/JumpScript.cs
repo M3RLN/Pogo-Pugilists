@@ -29,13 +29,7 @@ public class JumpScript : MonoBehaviour
             rb2.AddRelativeForce(Vector2.up * 10, ForceMode2D.Impulse);
             
         }
-        if (gameObject.transform.position.y <= 0)
-        {
-            gameObject.transform.rotation = Quaternion.identity;
-            //gameObject.transform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
-            rb2.freezeRotation = true;
-            rb2.velocity = new Vector2(Input.GetAxis("Horizontal") * 3, rb2.velocity.y);
-        }
+        
         else
         {
             rb2.freezeRotation = false;
