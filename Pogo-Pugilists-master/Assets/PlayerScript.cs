@@ -8,8 +8,11 @@ public class PlayerScript : MonoBehaviour
     public int lives;
     public bool inPlay;
     public bool gameOver;
+    public bool player1;
+    public bool player2;
     public bool alreadyCounted;
     public Transform playerPos;
+    public GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,14 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player1)
+        {
+            gm.UpdatePlyer1Lives(lives);
+        }
+        else if (player2)
+        {
+            gm.UpdatePlyer2Lives(lives);
+        }
         if (!inPlay)
         {
             if (lives > 0)
