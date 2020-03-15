@@ -10,9 +10,11 @@ public class PlayerScript : MonoBehaviour
     public bool gameOver;
     public bool player1;
     public bool player2;
+    public string winner;
     public bool alreadyCounted;
     public Transform playerPos;
     public GameManager gm;
+    public StaticItemSelection sis;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,38 @@ public class PlayerScript : MonoBehaviour
         inPlay = true;
         gameOver = false;
         alreadyCounted = false;
+        winner = "";
+        if (player1)
+        {
+            if (StaticItemSelection.getP1()[0])
+            {
+                ImmobilizeAbility();
+            }
+            else if (StaticItemSelection.getP1()[1])
+            {
+                HitBoxSpawnAbility();
+            }
+            else if (StaticItemSelection.getP1()[2])
+            {
+                PulseAbility();
+            }
+        }
+        else
+        {
+            if (StaticItemSelection.getP2()[0])
+            {
+                ImmobilizeAbility();
+            }
+            else if (StaticItemSelection.getP2()[1])
+            {
+                HitBoxSpawnAbility();
+            }
+            else if (StaticItemSelection.getP2()[2])
+            {
+                PulseAbility();
+            }
+        }
+        
 
     }
 
@@ -39,15 +73,29 @@ public class PlayerScript : MonoBehaviour
         {
             if (lives > 0)
             {
-                transform.position = playerPos.position;
-                inPlay = true;
-                alreadyCounted = false;
+
+                Invoke("resetPlayers", 1f);
             }
             else
             {
                 gameOver = true;
+                if (player1)
+                {
+                    gm.endGame("Player 1 ");
+                }
+                else if (player2)
+                {
+                    gm.endGame("Player 2 ");
+                }
             }
         }
+    }
+
+    public void resetPlayers()
+    {
+        transform.position = playerPos.position;
+        inPlay = true;
+        alreadyCounted = false;
     }
 
 
@@ -67,6 +115,7 @@ public class PlayerScript : MonoBehaviour
             }
             else if (other.CompareTag("Leaves"))
             {
+                
                 alreadyCounted = true;
                 lives--;
                 rb2.velocity = Vector2.zero;
@@ -74,6 +123,23 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+
+    private void ImmobilizeAbility()
+    {
+        Debug.Log("ImmobilizeAbility gained");
+    }
+
+    private void HitBoxSpawnAbility()
+    {
+        Debug.Log("HitBoxSpawnAbility gained");
+    }
+
+    private void PulseAbility()
+    {
+        Debug.Log("PulseAbility gained");
+    }
+
+    
 
     void OnCollisionEnter2D(Collision2D other)
     {

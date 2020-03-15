@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int livesp2;
     public Text livesTextp1;
     public Text livesTextp2;
+    public GameObject gameOverPanel;
+    public Text winnerText;
     
 
 
@@ -36,6 +39,22 @@ public class GameManager : MonoBehaviour
     {
         livesp2 = p2;
         livesTextp2.text = "Player 2 Lives: " + livesp2;
+    }
+
+    public void endGame(string winner)
+    {
+        gameOverPanel.SetActive(true);
+        winnerText.text = winner + "has won!";
+    }
+
+    public void restartGame()
+    {
+        SceneManager.LoadScene("ItemSelection");
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 
 }
