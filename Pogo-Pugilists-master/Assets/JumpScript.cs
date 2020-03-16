@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class JumpScript : MonoBehaviour
 {
-    public Rigidbody2D rb2;
+    Rigidbody2D rb2;
+    public GameObject HitBox;
+    GameObject newHitBox;
    
     //public float lockPos;
    
@@ -27,7 +29,8 @@ public class JumpScript : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             rb2.AddRelativeForce(Vector2.up * 10, ForceMode2D.Impulse);
-            
+            newHitBox = Instantiate(HitBox, new Vector3(transform.position.x, transform.position.y - 1.5f, 0), transform.rotation);
+            newHitBox.GetComponent<PushBackScript>().Force = rb2;
         }
         
         else
