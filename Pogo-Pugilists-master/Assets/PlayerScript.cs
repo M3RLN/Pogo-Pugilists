@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public bool player2;
     public string winner;
     public bool alreadyCounted;
-    public Transform playerPos;
+    public Transform startPos;
     public GameManager gm;
     public StaticItemSelection sis;
     // Start is called before the first frame update
@@ -54,7 +54,7 @@ public class PlayerScript : MonoBehaviour
                 PulseAbility();
             }
         }
-        
+
 
     }
 
@@ -74,7 +74,7 @@ public class PlayerScript : MonoBehaviour
             if (lives > 0)
             {
 
-                Invoke("resetPlayers", 1f);
+                Invoke("resetPlayers", 0f);
             }
             else
             {
@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour
 
     public void resetPlayers()
     {
-        transform.position = playerPos.position;
+        this.transform.position = startPos.position;
         inPlay = true;
         alreadyCounted = false;
     }
@@ -115,7 +115,7 @@ public class PlayerScript : MonoBehaviour
             }
             else if (other.CompareTag("Leaves"))
             {
-                
+
                 alreadyCounted = true;
                 lives--;
                 rb2.velocity = Vector2.zero;
@@ -139,7 +139,7 @@ public class PlayerScript : MonoBehaviour
         Debug.Log("PulseAbility gained");
     }
 
-    
+
 
     void OnCollisionEnter2D(Collision2D other)
     {

@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitBox: {fileID: 748722925890660502, guid: 88324240b7afe414b8935f76ddbd063d, type: 3}
+  moveAxis: 
+  jumpButton: 
 --- !u!50 &2545246034910215245
 Rigidbody2D:
   serializedVersion: 4
@@ -120,7 +122,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &2545246034910215281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -179,7 +181,7 @@ MonoBehaviour:
   lives: 0
   inPlay: 0
   gameOver: 0
-  player1: 1
+  player1: 0
   player2: 0
   winner: 
   alreadyCounted: 0

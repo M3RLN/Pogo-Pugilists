@@ -38,9 +38,9 @@ public class JumpScript : MonoBehaviour
 
         else
         {
-            rb2.freezeRotation = false;
+            //rb2.freezeRotation = false;
             //gameObject.transform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
-            gameObject.transform.Rotate(0,0,Input.GetAxis(moveAxis));
+            gameObject.transform.Rotate(0,0,Input.GetAxis(moveAxis) * 1.2f);
         }
 
     }
