@@ -969,6 +969,7 @@ MonoBehaviour:
   p2: 0
   selectionText: {fileID: 26118137}
   sis: {fileID: 1547550459}
+  myOb: {fileID: 1260649774}
 --- !u!1 &2139907876
 GameObject:
   m_ObjectHideFlags: 0

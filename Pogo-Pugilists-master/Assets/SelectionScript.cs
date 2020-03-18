@@ -10,6 +10,7 @@ public class SelectionScript : MonoBehaviour
     public bool p2;
     public Text selectionText;
     public StaticItemSelection sis;
+    public GameObject myOb;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class SelectionScript : MonoBehaviour
     {
         if(!p1 && !p2)
         {
+            DontDestroyOnLoad(myOb);
             SceneManager.LoadScene("SampleScene");
         }
         if (p1)
