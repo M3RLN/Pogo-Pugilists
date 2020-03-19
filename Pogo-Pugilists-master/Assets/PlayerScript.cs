@@ -81,11 +81,11 @@ public class PlayerScript : MonoBehaviour
                 gameOver = true;
                 if (player1)
                 {
-                    gm.endGame("Player 1 ");
+                    gm.endGame("Player 2 ");
                 }
                 else if (player2)
                 {
-                    gm.endGame("Player 2 ");
+                    gm.endGame("Player 1 ");
                 }
             }
         }
