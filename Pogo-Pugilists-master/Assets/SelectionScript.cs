@@ -16,7 +16,7 @@ public class SelectionScript : MonoBehaviour
     {
         p1 = true;
         p2 = false;
-        
+
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class SelectionScript : MonoBehaviour
         if(!p1 && !p2)
         {
             DontDestroyOnLoad(myOb);
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("SampleScene2");
         }
         if (p1)
         {
@@ -35,7 +35,7 @@ public class SelectionScript : MonoBehaviour
         {
             selectionText.text = "Player 2 Choose your PowerUp";
         }
-        
+
     }
 
     public void choice1Selected()
